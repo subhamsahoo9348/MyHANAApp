@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="filedownload.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+    <Table id="table" />
+    </content>
+    <footer>
+    <OverflowToolbar >
+    <Button text="DOWNLOAD" icon="sap-icon://download" press="onExport"></Button>
+    <Button text="ADD COLUMN" press="openCreateColumn" />
+    </OverflowToolbar>
+    </footer>
+    </Page>
+</mvc:View>

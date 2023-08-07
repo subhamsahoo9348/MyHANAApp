@@ -1,0 +1,26 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:unified="sap.ui.unified" controllerName="pdfviewer.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="PDF">
+      <content>
+      <unified:FileUploader id="pdfFile" fileType="pdf" mimeType="pdf" icon="sap-icon://open-folder" iconOnly="true" uploadComplete="showSave"></unified:FileUploader>
+      <Button text="OPEN" press="onUpload"></Button>
+      <Table id="pdfTable" items="{/pdf}" width="20%">
+      <columns>
+      <Column ><Text text="ALL PDF FILE"></Text></Column>
+      </columns>
+      <items>
+      <ColumnListItem type="Active" press="showPDF">
+      <cells><Text text="{NAME}"></Text></cells>
+      </ColumnListItem>
+      </items>
+      </Table>
+      </content>
+      <footer>
+      <OverflowToolbar >
+      <Button id="save" text="SAVE" press="onSavePress"></Button>
+      <!-- <Button text="DELETE" press="onDeletePress"></Button> -->
+      </OverflowToolbar>
+      </footer>
+    </Page>
+</mvc:View>

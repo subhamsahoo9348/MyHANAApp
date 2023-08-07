@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="uniqueDialog"
+		contentHeight="20%"
+		title="UNIQUE_ID"
+		items="{/UNIQUE_ID}"
+		liveChange="onValueHelpDialogSearch1"
+		confirm=".onValueHelpDialogClose1"
+		cancel=".onValueHelpDialogClose1">
+		<StandardListItem
+			title="{UNIQUE_ID}"
+			/>
+	</SelectDialog>
+</core:FragmentDefinition>

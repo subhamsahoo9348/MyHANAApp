@@ -1,0 +1,122 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m"
+    controllerName="headeritem.controller.View1"
+    height="100%"
+>
+    <ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        showEditHeaderButton="true"
+        upperCaseAnchorBar="false"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:HBox>
+                        <m:Title
+                            text="Unique Characteristics"
+                            wrapping="true"
+                        />
+                    </m:HBox>
+                </expandedHeading>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <headerContent>
+            <m:FlexBox wrap="Wrap">
+                <layout:VerticalLayout class="vRow">
+                    <m:Label text="Unique Characteristics search" />
+                    <m:SearchField
+                        liveChange="onSearch"
+                        id="search"
+                        width="18rem"
+                    />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Label text="PRODUCT_ID" />
+                    <m:Input
+                        id="input"
+                        showClearIcon="true"
+                        showSuggestion="true"
+                        width="18rem"
+                        valueHelpIconSrc="sap-icon://add-product"
+                        textAlign="Center"
+                        showValueHelp="true"
+                        suggestionItems="{/PRODUCT_ID}"
+                        valueHelpRequest="onValueHelpRequest"
+                    >
+                        <m:suggestionItems>
+                            <core:Item text="{PRODUCT_ID}" />
+                        </m:suggestionItems>
+                    </m:Input>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Label text="UID_TYPE" />
+                    <m:Select
+                        width="18rem"
+                        id="select"
+                        textAlign="Center"
+                        items="{/UNIQUE_ID}"
+                        selectedKey="ALL"
+                    >
+                        <core:Item
+                            key="{UID_TYPE}"
+                            text="{UID_TYPE}"
+                        />
+                    </m:Select>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Text />
+                    <m:Button
+                        id="go"
+                        text="Go"
+                        press="go"
+                    />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Text />
+                    <m:Button
+                        id="create"
+                        text="Create"
+                        press="create"
+                    />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Text />
+                    <m:Button
+                        id="copy"
+                        text="Copy"
+                        press="create"
+                    />
+                </layout:VerticalLayout>
+            </m:FlexBox>
+        </headerContent>
+        <sections>
+            <ObjectPageSection>
+                <ObjectPageSubSection>
+                    <m:Table
+                        id="table"
+                        mode="SingleSelectMaster"
+                        selectionChange="onPress"
+                    >
+                        <m:columns>
+                            <m:Column>
+                                <m:Text text="UNIQUE_DESC" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="UID_TYPE" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="ACTIVE" />
+                            </m:Column>
+                        </m:columns>
+                        <m:items />
+                    </m:Table>
+                </ObjectPageSubSection>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

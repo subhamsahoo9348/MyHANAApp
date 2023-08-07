@@ -1,0 +1,39 @@
+<mvc:View controllerName="staticicalforecast.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+   <Page id="page" title="{i18n>title}" showHeader="false">
+    <subHeader >
+    <OverflowToolbar id="_IDGenOverflowToolbar1"  >
+       <Bar id="_IDGenBar1">
+       <contentMiddle><Text text="Prediction Profile"/></contentMiddle>
+       <contentRight>
+       <Button id="_IDGenButton1" icon="sap-icon://add" text="Create" press="onCreate"></Button>
+       <Button id="_IDGenButton2" icon="sap-icon://copy" text="Copy" press="onCopy" ></Button>
+       <Button icon="sap-icon://edit" text="Edit" press="onEdit"></Button>
+       <Button icon="sap-icon://delete" text="Delete" press="onDelete" ></Button>
+       <Button icon="sap-icon://sys-help" ></Button>
+       </contentRight>
+       </Bar>
+       </OverflowToolbar>
+    </subHeader>
+    <Toolbar >
+    <SearchField placeholder="Profile or Description" id="search" liveChange="search"></SearchField>
+    </Toolbar>
+       <content>
+       <Table id="table" mode="SingleSelectMaster" selectionChange="onPress"  items="{/item}">
+       <columns>
+       <Column ><Text text="Profile"></Text></Column>
+       <Column ><Text text="Method"></Text></Column>
+       <Column ><Text text="Profile Description"></Text></Column>
+       </columns>
+       <items>
+       <ColumnListItem >
+       <cells><Text text="{PROFILE}" /></cells>
+       <cells><Text text="{METHOD}" /></cells>
+       <cells><Text text="{PRF_DESC}" /></cells>
+       </ColumnListItem>
+       </items>
+       </Table>
+       </content>
+    </Page>
+</mvc:View>

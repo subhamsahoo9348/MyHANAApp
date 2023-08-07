@@ -1,0 +1,370 @@
+_schema-version: "3.1"
+ID: MyHANAApp
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: MyHANAApp-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: MyHANAApp-db
+  - name: MyHANAApp-auth
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm-ci
+- name: MyHANAApp-db-deployer
+  type: hdb
+  path: db
+  requires:
+  - name: MyHANAApp-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: MyHANAApp
+  type: approuter.nodejs
+  path: app/
+  requires:
+  - name: srv-api
+    group: destinations
+    properties:
+      forwardAuthToken: true
+      name: srv-api
+      url: ~{srv-url}
+  - name: MyHANAApp-auth
+  - name: MyHANAApp-destination-service
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  parameters:
+    disk-quota: 256M
+    keep-existing-routes: true
+    memory: 256M
+- name: MyHANAApp-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: MyHANAApp-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - appmyapp.zip
+      name: appmyapp
+      target-path: resources/
+    - artifacts:
+      - project1.zip
+      name: project1
+      target-path: resources/
+    - artifacts:
+      - demo.zip
+      name: demo
+      target-path: resources/
+    - artifacts:
+      - mastertable.zip
+      name: mastertable
+      target-path: resources/
+    - artifacts:
+      - treetable.zip
+      name: treetable
+      target-path: resources/
+    - artifacts:
+      - try.zip
+      name: try
+      target-path: resources/
+    - artifacts:
+      - flexablecolumnlayout.zip
+      name: flexablecolumnlayout
+      target-path: resources/
+    - artifacts:
+      - fcl.zip
+      name: fcl
+      target-path: resources/
+    - artifacts:
+      - login.zip
+      name: login
+      target-path: resources/
+    - artifacts:
+      - carousel.zip
+      name: carousel
+      target-path: resources/
+    - artifacts:
+      - fileuploader.zip
+      name: fileuploader
+      target-path: resources/
+    - artifacts:
+      - filedownload.zip
+      name: filedownload
+      target-path: resources/
+    - artifacts:
+      - pdfviewer.zip
+      name: pdfviewer
+      target-path: resources/
+    - artifacts:
+      - goibibbo.zip
+      name: goibibbo
+      target-path: resources/
+    - artifacts:
+      - hbdview.zip
+      name: hbdview
+      target-path: resources/
+    - artifacts:
+      - hea.zip
+      name: hea
+      target-path: resources/
+    - artifacts:
+      - staticicalforecast.zip
+      name: staticicalforecast
+      target-path: resources/
+    - artifacts:
+      - headeritem.zip
+      name: headeritem
+      target-path: resources/
+    - artifacts:
+      - salesorder.zip
+      name: salesorder
+      target-path: resources/
+- name: appmyapp
+  type: html5
+  path: app/myapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: project1
+  type: html5
+  path: app/project1
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: demo
+  type: html5
+  path: app/demo
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: mastertable
+  type: html5
+  path: app/mastertable
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: treetable
+  type: html5
+  path: app/treetable
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: try
+  type: html5
+  path: app/try
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: flexablecolumnlayout
+  type: html5
+  path: app/flexablecolumnlayout
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: fcl
+  type: html5
+  path: app/fcl
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: login
+  type: html5
+  path: app/login
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: carousel
+  type: html5
+  path: app/carousel
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: fileuploader
+  type: html5
+  path: app/fileuploader
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: filedownload
+  type: html5
+  path: app/filedownload
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: pdfviewer
+  type: html5
+  path: app/pdfviewer
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: goibibbo
+  type: html5
+  path: app/goibibbo
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: hbdview
+  type: html5
+  path: app/hbdview
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: hea
+  type: html5
+  path: app/hea
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: staticicalforecast
+  type: html5
+  path: app/staticicalforecast
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: headeritem
+  type: html5
+  path: app/headeritem
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: salesorder
+  type: html5
+  path: app/salesorder
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: MyHANAApp-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+- name: MyHANAApp-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: MyHANAApp-${org}-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: MyHANAApp-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: MyHANAApp-html5-srv
+    service-plan: app-host
+- name: MyHANAApp-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: MyHANAApp-destination-service
+    service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npx -p @sap/cds-dk cds build --production

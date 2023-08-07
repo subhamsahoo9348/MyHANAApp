@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Interactions_Header" EntityType="CatalogService.Interactions_Header"/>
+                <EntitySet Name="Interactions_Items" EntityType="CatalogService.Interactions_Items"/>
+                <EntitySet Name="Employee" EntityType="CatalogService.Employee"/>
+                <EntitySet Name="CP_STAT_METHOD" EntityType="CatalogService.CP_STAT_METHOD"/>
+                <EntitySet Name="CP_STAT_METHOD_VAL" EntityType="CatalogService.CP_STAT_METHOD_VAL"/>
+                <EntitySet Name="CP_STAT_PROFILE" EntityType="CatalogService.CP_STAT_PROFILE"/>
+                <EntitySet Name="CP_STAT_PROFILE_VAL" EntityType="CatalogService.CP_STAT_PROFILE_VAL"/>
+                <EntitySet Name="UNIQUE_ID_HEADER" EntityType="CatalogService.UNIQUE_ID_HEADER"/>
+                <EntitySet Name="UNIQUE_ID_ITEM" EntityType="CatalogService.UNIQUE_ID_ITEM"/>
+                <EntitySet Name="CHARVAL_NUM" EntityType="CatalogService.CHARVAL_NUM"/>
+                <EntitySet Name="SEED_ORDER" EntityType="CatalogService.SEED_ORDER"/>
+                <EntitySet Name="PDFStore" EntityType="CatalogService.PDFStore"/>
+                <FunctionImport Name="crud1" Function="CatalogService.crud1"/>
+                <FunctionImport Name="savepdf" Function="CatalogService.savepdf"/>
+                <FunctionImport Name="save" Function="CatalogService.save"/>
+                <FunctionImport Name="crud" Function="CatalogService.crud"/>
+                <FunctionImport Name="order" Function="CatalogService.order"/>
+            </EntityContainer>
+            <EntityType Name="Interactions_Header">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ITEMS" Type="Edm.String"/>
+                <Property Name="PARTNER" Type="Edm.String"/>
+                <Property Name="LOG_DATE" Type="Edm.String"/>
+                <Property Name="BPCOUNTRY" Type="Edm.String" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="Interactions_Items">
+                <Key>
+                    <PropertyRef Name="INTHeader"/>
+                    <PropertyRef Name="TEXT_ID"/>
+                </Key>
+                <Property Name="INTHeader" Type="Edm.String" Nullable="false"/>
+                <Property Name="TEXT_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="LANGU" Type="Edm.String" MaxLength="2"/>
+                <Property Name="LOGTEXT" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Employee">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="NUMBER" Type="Edm.String" MaxLength="100"/>
+                <Property Name="DEPT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="PASSWORD" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="CP_STAT_METHOD">
+                <Key>
+                    <PropertyRef Name="METHOD"/>
+                </Key>
+                <Property Name="METHOD" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="METHOD_DESC" Type="Edm.String" MaxLength="200"/>
+            </EntityType>
+            <EntityType Name="CP_STAT_METHOD_VAL">
+                <Key>
+                    <PropertyRef Name="METHOD"/>
+                    <PropertyRef Name="PARAM"/>
+                </Key>
+                <Property Name="METHOD" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="PARAM" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="PARAM_DESC" Type="Edm.String" MaxLength="200"/>
+                <Property Name="DATATYPE" Type="Edm.String"/>
+                <Property Name="POSITION" Type="Edm.Int32"/>
+                <Property Name="DEFAULT_VALUE" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="CP_STAT_PROFILE">
+                <Key>
+                    <PropertyRef Name="PROFILE"/>
+                </Key>
+                <Property Name="PROFILE" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="PRF_DESC" Type="Edm.String" MaxLength="200"/>
+                <Property Name="METHOD" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CREATED_DATE" Type="Edm.Date"/>
+                <Property Name="CREATED_BY" Type="Edm.String" MaxLength="12"/>
+            </EntityType>
+            <EntityType Name="CP_STAT_PROFILE_VAL">
+                <Key>
+                    <PropertyRef Name="PROFILE"/>
+                    <PropertyRef Name="PARAM"/>
+                </Key>
+                <Property Name="PROFILE" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="PARAM" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="PARAM_VALUE" Type="Edm.String" MaxLength="1000"/>
+            </EntityType>
+            <EntityType Name="UNIQUE_ID_HEADER">
+                <Property Name="UNIQUE_ID" Type="Edm.Int32"/>
+                <Property Name="PRODUCT_ID" Type="Edm.String"/>
+                <Property Name="UNIQUE_DESC" Type="Edm.String"/>
+                <Property Name="UID_TYPE" Type="Edm.String"/>
+                <Property Name="ACTIVE" Type="Edm.Boolean"/>
+            </EntityType>
+            <EntityType Name="UNIQUE_ID_ITEM">
+                <Property Name="UNIQUE_ID" Type="Edm.Int32"/>
+                <Property Name="PRODUCT" Type="Edm.String"/>
+                <Property Name="CHAR_NUM" Type="Edm.String"/>
+                <Property Name="CHAR_NUM_VAL" Type="Edm.String"/>
+                <Property Name="CHAR_VALNUMDESC" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="CHARVAL_NUM">
+                <Property Name="CHAR_NUM" Type="Edm.String"/>
+                <Property Name="CHAR_NUM_VAL" Type="Edm.String"/>
+                <Property Name="CHARVAL_NUM" Type="Edm.String"/>
+                <Property Name="CHAR_VALNUMDESC" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="SEED_ORDER">
+                <Key>
+                    <PropertyRef Name="SEEDORDER"/>
+                </Key>
+                <Property Name="SEEDORDER" Type="Edm.String" Nullable="false"/>
+                <Property Name="PRODUCT" Type="Edm.String"/>
+                <Property Name="UNIQUE_ID" Type="Edm.String"/>
+                <Property Name="ORDER_QUANTITY" Type="Edm.Int32"/>
+                <Property Name="MATERIAL_AVAIL_DATE" Type="Edm.String"/>
+                <Property Name="CREADTED_DATE" Type="Edm.String"/>
+                <Property Name="CREATED_BY" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="PDFStore">
+                <Key>
+                    <PropertyRef Name="NAME"/>
+                </Key>
+                <Property Name="NAME" Type="Edm.String" Nullable="false"/>
+                <Property Name="URL" Type="Edm.String"/>
+            </EntityType>
+            <Function Name="crud1" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="ID" Type="Edm.Int32"/>
+                <Parameter Name="NAME" Type="Edm.String"/>
+                <Parameter Name="NUMBER" Type="Edm.String"/>
+                <Parameter Name="DEPT" Type="Edm.String"/>
+                <Parameter Name="PASSWORD" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Function Name="savepdf" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="NAME" Type="Edm.String"/>
+                <Parameter Name="URL" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Function Name="save" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="OBJ" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Function Name="crud" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="PRODUCT_ID" Type="Edm.String"/>
+                <Parameter Name="UNIQUE_DESC" Type="Edm.String"/>
+                <Parameter Name="UID_TYPE" Type="Edm.String"/>
+                <Parameter Name="ACTIVE" Type="Edm.Boolean"/>
+                <Parameter Name="VALUE" Type="Edm.String"/>
+                <Parameter Name="UNIQUE_ID" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Function Name="order" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="PRODUCT" Type="Edm.String"/>
+                <Parameter Name="UNIQUE_ID" Type="Edm.String"/>
+                <Parameter Name="ORDER_QUANTITY" Type="Edm.Int32"/>
+                <Parameter Name="MATERIAL_AVAIL_DATE" Type="Edm.String"/>
+                <Parameter Name="CREADTED_DATE" Type="Edm.String"/>
+                <Parameter Name="CREATED_BY" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

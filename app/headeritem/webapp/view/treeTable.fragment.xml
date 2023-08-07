@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+    xmlns:table="sap.ui.table"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog id="treeTableDialog" contentHeight="60%"  contentWidth="25%">
+    <content>
+    <SearchField id="search1"  class="search1" liveChange="searchName"></SearchField>
+        <table:TreeTable 
+                    id="TreeTable"
+                    class="treeTable"
+                    rows="{path:'/CHARL'}"
+                    rowHeight="55%"
+                    selectionMode="None"
+                    >
+            <table:columns>
+                <table:Column >
+                    <Text text="CHARVAL" />
+                    <table:template >
+                        <Text text="{name}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Text text="CHARVALDESC"/>
+                    <table:template>
+                       <RadioButtonGroup id="radioGrouph1" visible="{show}" selectedIndex="-1">
+                       <RadioButton text="{type}" selected="{select}" groupName="{gN}"></RadioButton>
+                       </RadioButtonGroup>
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:TreeTable>
+    </content>
+    <beginButton>
+			<Button tooltip="ADD" text="ADD" type="Accept" press="treeTableSelect"/>
+		</beginButton>
+		<endButton>
+			<Button tooltip="Cancel" text="CANCEL" type="Reject" press=".onCloseTree"/>
+		</endButton>
+    </Dialog>
+</core:FragmentDefinition>

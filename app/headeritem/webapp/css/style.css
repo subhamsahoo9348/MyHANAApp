@@ -1,0 +1,28 @@
+/* Enter your custom styles here */
+
+.vRow {
+    margin-left: 30px;
+}
+
+span#container-headeritem---View1--create-inner,
+span#container-headeritem---View1--copy-inner,
+span#container-headeritem---View1--go-inner{
+    color: white;
+    background-color: rgb(3, 138, 255);
+}
+
+
+.treeTable td{
+    border-color: transparent;
+}
+
+.addButton{
+    font-size: larger;
+    font-weight: bolder;
+    line-height: 100px;
+}
+
+button#container-salesorder---View1--createOrder,
+button#container-salesorder---View1--browse{
+    border: 2px solid rgb(0, 130, 244) !;
+}

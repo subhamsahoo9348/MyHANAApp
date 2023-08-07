@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog id="optionDialog" contentWidth="30%" contentHeight="50%" >
+  <content>
+  <SearchField id="searchCHARVAL_NUM" liveChange="onsearchCHARVAL_NUM" width="100%"></SearchField>
+   <List items="{/tree}" mode="None" id="list" >
+   <items>
+   <CustomListItem >
+   <Panel expandable="true" headerText="{names}"  width="auto"   class="sapUiResponsiveMargin" >
+		<content>
+			<RadioButtonGroup  id="radioGrouph" selectedIndex="-1"  select="buttonSelect" >
+			</RadioButtonGroup>
+		</content>
+	</Panel>
+   </CustomListItem>
+   </items>
+   </List> 
+  </content>
+  <beginButton>
+		<Button tooltip="ADD" text="ADD" type="Accept" press="confirm"/>
+  </beginButton>
+  <endButton>
+        <Button tooltip="Cancel" text="CANCEL" type="Reject" press=".onCloseOption"/>
+  </endButton>
+	</Dialog>
+</core:FragmentDefinition>

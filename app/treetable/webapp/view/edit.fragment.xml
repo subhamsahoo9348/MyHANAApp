@@ -1,0 +1,33 @@
+<core:FragmentDefinition 
+xmlns="sap.m" 
+xmlns:core="sap.ui.core" 
+xmlns:form="sap.ui.layout.form"
+>
+	<Dialog id="editDialog" type="Message" title="UPDATE" icon="sap-icon://user-edit" >
+		<content>
+			<form:SimpleForm   layout="ResponsiveGridLayout">
+				<form:content>
+					<Label text="ID"  design="Bold" required="true" />
+          <Input type="Text" id="id1" value="{TEMP>/ID}" enabled="false" />
+					<Label text="NAME"  design="Bold" required="true"/>
+					<Input id="name1" value="{TEMP>/NAME}" liveChange="onLiveChangeName1" />
+					<Label text="NUMBER"  design="Bold" required="true"/>
+					<Input type="Tel" id="number1" value="{TEMP>/NUMBER}" liveChange="onLiveChangeNumber1" maxLength="10" />
+					<Label text="DEPT"  design="Bold" required="true" />
+					<Select id="dept1" enabled="false" selectedKey="{TEMP>/DEPT}">
+					<core:Item text="HR" key="10"></core:Item>
+					<core:Item text="FUNCTION" key="20"></core:Item>
+					<core:Item text="DEVELOPER" key="30" ></core:Item>
+					<core:Item text="TESTER" key="40"></core:Item>
+					</Select>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+		<beginButton>
+			<Button tooltip="Add" icon="sap-icon://accept" type="Accept" press=".updateEmp"/>
+		</beginButton>
+		<endButton>
+			<Button tooltip="Cancel" icon="sap-icon://cancel" type="Reject" press=".onEditClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

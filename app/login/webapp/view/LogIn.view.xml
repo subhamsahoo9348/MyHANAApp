@@ -1,0 +1,30 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:networkgraph="sap.suite.ui.commons.networkgraph" xmlns:semantic="sap.m.semantic" xmlns:internal="sap.landvisz.internal" controllerName="login.controller.LogIn"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" showHeader="true" title="{i18n>title}">
+    <headerContent>
+    <Button text="{i18n>signup}" press="pressSignUp"/>
+    </headerContent>
+		<content>
+        <f:SimpleForm layout="ResponsiveGridLayout" >
+        <f:content>
+        <Label text="{i18n>username}"  design="Bold" required="true" />
+        <Input type="Text" id="name" />
+		<Label text="{i18n>password}"  design="Bold" required="true"/>
+		<Input id="pass" type="Password" showValueHelp="true" valueHelpIconSrc="sap-icon://show" valueHelpRequest="show"/>
+        <Button text="{i18n>login}" press="onLogIn" width="100%"/>
+        </f:content>
+        </f:SimpleForm>
+	</content>
+    <footer>
+	<OverflowToolbar>
+	<Bar>
+	<contentMiddle>
+	<Button text="{i18n>forgetpassword}" type="Reject" press="pressForgetPassword"></Button>
+	</contentMiddle>
+	</Bar>
+	</OverflowToolbar>
+	</footer>
+    </Page>
+</mvc:View>

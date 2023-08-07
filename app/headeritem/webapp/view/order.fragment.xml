@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core" >
+	<Dialog id="orderDialog" title="CREATE SEED ORDER" titleAlignment="Center" contentWidth="30%">
+    <content >
+			<form:SimpleForm layout="ResponsiveGridLayout">
+				<form:content>
+					<Label text="PRODUCT"  design="Bold"/>
+                    <Input  type="Text" id="orderProduct" enabled="false" />
+					<Label text="UniqueId"  design="Bold"/>
+					<Input id="uniqueIDOrder" enabled="false"/>
+					<Label text="ORDER QUANTITY" required="true"  design="Bold" />
+					<Input type="Text" id="orderQuantity" liveChange="checkOrderQuantity"/>
+					<Label text="MATERIAL AVAIL DATE" required="true" design="Bold"/>
+					<DatePicker id="materialDate" />
+				</form:content>
+			</form:SimpleForm>
+		</content>
+		<beginButton>
+			<Button tooltip="order" text="ORDER" type="Accept" press="orderNow"/>
+		</beginButton>
+		<endButton>
+			<Button tooltip="Cancel" text="CANCEL" type="Reject" press=".onCloseOrder"/>
+		</endButton>
+    </Dialog>
+</core:FragmentDefinition>

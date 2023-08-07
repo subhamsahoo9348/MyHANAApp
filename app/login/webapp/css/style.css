@@ -1,0 +1,25 @@
+.sapUiFormResLayout>div {
+    padding: 1rem;
+    box-sizing: border-box;
+}
+#__form0--Layout{
+    width: 20rem;
+    margin-left: 50rem;
+    margin-top: 20rem;
+}
+#logout{
+    background-color: rgb(231, 112, 112);
+    color: red !important;
+}
+
+#__button1-inner{
+    background-color: cornflowerblue;
+}
+
+#__form0--FC-NoHead--Grid{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.sapMMessageToastRed{
+    background-color: rgb(233, 151, 151);
+}

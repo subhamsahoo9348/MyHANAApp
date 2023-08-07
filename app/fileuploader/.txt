@@ -1,0 +1,27 @@
+ var data = JSON.parse(req.data.OBJ);
+        // var key = Object.keys(data[0]);
+        // var dates = key.filter(data => data !== 'PRODUCT' && data !== 'UNIQUE_ID');
+        // var datesLength = dates.length;
+        // var dataLength = data.length;
+        data.forEach(row => {
+          var key = Object.keys(row);
+          var dates = key.filter(item => item !== 'PRODUCT' && item !== 'UNIQUE_ID');
+          var PRODUCT = row.PRODUCT;
+          var UNIQUE_ID = row.UNIQUE_ID;
+          dates.forEach(async date => {
+            var CP_SEED_ORDER = await cds.run(SELECT.from("APP_INTERACTIONS_SEED_ORDER"));
+            var orderId = "SE000" + (CP_SEED_ORDER.length + 1);
+            await cds.run(
+              INSERT.into("APP_INTERACTIONS_SEED_ORDER").entries({
+                SEEDORDER: orderId,
+                PRODUCT: PRODUCT,
+                UNIQUE_ID: UNIQUE_ID,
+                ORDER_QUANTITY: row.date,
+                MATERIAL_AVAIL_DATE: new Date(date.split('_').join(' ')),
+                CREADTED_DATE: new Date().toLocaleDateString(),
+                CREATED_BY: req.headers["x-username"],
+              })
+            );
+
+          })
+        })

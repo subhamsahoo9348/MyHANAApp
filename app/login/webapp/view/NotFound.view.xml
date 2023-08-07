@@ -1,0 +1,7 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page >
+    <Text text="PAGE NOT FOUND" />
+    </Page>
+</mvc:View>

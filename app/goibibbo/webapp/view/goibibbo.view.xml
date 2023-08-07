@@ -1,0 +1,312 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="goibibbo.controller.goibibbo"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.f"
+    xmlns="sap.m">
+    <Page id="page" showHeader="false">
+    <subHeader>
+    <OverflowToolbar >
+     <Text text="go" id="go"/><Text text="ibibo" id="ibibo"/>
+     <Button class="btn" id="fli" text="Flight" icon="sap-icon://flight" />
+     <Button class="btn" id="hote" text="Hotels" icon="sap-icon://building" />
+     <Button class="btn" id="tra" text="Trains" icon="sap-icon://subway-train" />
+     <Button class="btn" id="cab" text="Cabs" icon="sap-icon://car-rental" />
+     <Button class="btn" id="bus" text="Bus" icon="sap-icon://bus-public-transport" />
+     <Button class="btn" id="hol" text="Holidays" icon="sap-icon://bed" />
+     <Button class="btn" id="for" text="Forex" icon="sap-icon://lead" />
+     <core:Icon src="sap-icon://suitcase" id="suit"></core:Icon>
+     <Text text="My Trips" id="mytrip" />
+     <Text text="Manage Booking" id="managebook" />
+    <Button text="LOGIN/SIGNUP" icon="sap-icon://customer" id="log_sign"></Button>
+     </OverflowToolbar>
+    </subHeader>
+       <content>
+     <Text class="bgOne" />
+     <Text class="bgTwo" />
+     <Text class="bgThree" />
+       <Text text="Domestic and International Flights" id="text"/>
+       <f:Card class="sapUiMediumMargin" width="700px" id="card">
+		<f:content>
+			<VBox id="way">
+            <RadioButtonGroup id="rbg1" columns="3" width="100%" class="sapUiMediumMarginBottom">
+			<RadioButton id="RB1-1" class="rbtn" text="One-way" />
+			<RadioButton id="RB1-2" class="rbtn" text="Round-trip"  />
+			<RadioButton id="RB1-3" class="rbtn" text="Multi-city"  />
+		</RadioButtonGroup>
+        <HBox id="input">
+        <Input id="I1" class="I" placeholder="Enter city or airport"/>
+        <Input id="I2" class="I" placeholder="Enter city or airport"/>
+        <Input id="I3" class="I" placeholder="25 MAY 23"/>
+        <Input id="I4" class="I" placeholder="27 MAY 23"/>
+        <Input id="I5" class="I" placeholder="1 Adult"/>
+        </HBox>
+        <!-- <HBox id="texts">
+        <Text id="select" text="Select A"></Text>
+         <Text id="afare" text="Fare Type:"></Text>
+        </HBox> -->
+         <HBox id="radio">
+        <RadioButtonGroup id="type" columns="6" width="100%" >
+			<RadioButton id="regular" class="rbtn" text="Regular" />
+			<RadioButton id="AF" class="rbtn" text="Armed Forces"  />
+			<RadioButton id="SC" class="rbtn" text="Senior Citizen"  />
+            <RadioButton id="student" class="rbtn" text="Student"  />
+			<RadioButton id="DN" class="rbtn" text="DoctorsNurses"  />
+            <RadioButton id="ES" class="rbtn" text="Extra Seat"  />
+		</RadioButtonGroup>
+        </HBox>
+        <HBox id="textss">
+        <Text id="trending" text="Trending" />
+         <Text id="search" text="Search:" />
+         <Text text="Bengaluru" id="ben"/>
+         <Text text="Mumbai" id="mum"/>
+         <core:Icon src="sap-icon://arrow-right" id="ar"></core:Icon>
+         <Text text="Delhi" id="del"/>
+         <Text text="Goa" id="goa"/>
+         <core:Icon src="sap-icon://arrow-right" id="a"></core:Icon>
+        </HBox>
+    </VBox>
+		</f:content>
+	</f:Card>
+    <Text text="SEARCH FLIGHTS" id="SF"></Text>
+    <f:Card class="sapUiMediumMargin" width="700px" id="card1">
+		<f:content>
+              <VBox id="box">
+               <Text text="Offers For You" id="offer" />
+               <HBox id="title"> 
+                <Text class="ewq" text="All" id="all" />
+                <Text class="ewq" text="Bank Offers" id="bank" />
+                <Text class="ewq" text="Flights" id="fligh" />
+                <Text class="ewq" text="Hotels" id="hotel" />
+                <Text class="ewq" text="Cabs" id="cabs" />
+                <Text class="ewq" text="Bus" id="buss" />
+                <Text class="ewq" text="Trains" id="trains" />
+                <Text  class="ewq" text="Self Drive" id="SD" />
+                <Button text="See All Offers" id="SAF" icon="sap-icon://navigation-right-arrow" type="Transparent" iconFirst="false"/>
+               </HBox>
+               <HBox id="carsole">
+               <Carousel id="car" showPageIndicator="false" loop="true" >
+              <HBox class="f" id="f1">
+               <Image class="airasia" src="https://gos3.ibcdn.com/spicejet-1685102236.jpg"></Image>
+               <VBox class="texts">
+               <Text class="flifhtdt" text="Flights"></Text>
+               <Text class="flightfare" text="Flights Fares Starting @ Rs."></Text>
+                <Text class="number" text="1648*"></Text>
+                <VBox class="calset">
+                <core:Icon src="sap-icon://calendar" class="calicon" ></core:Icon>
+                <Text class="may31" text="Till 31 May"></Text>
+                </VBox>
+                <Button text="BOOK NOW" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </VBox>
+               </HBox>
+                <HBox class="f">
+               <Image class="airasia" src="https://gos3.ibcdn.com/spicejete-1685102537.jpg"></Image>
+               <VBox class="texts">
+               <Text class="flifhtdt" text="Domestic Flights"></Text>
+               <Text class="flightfare" text="Flights Fares Starting @ Rs."></Text>
+                <Text class="number" text="1,818*"></Text>
+                <VBox class="calset">
+                <core:Icon src="sap-icon://calendar" class="calicon" ></core:Icon>
+                <Text class="may31" text="Till 31 May"></Text>
+                </VBox>
+                <Button text="BOOK NOW" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </VBox>
+               </HBox>
+              <HBox class="f">
+               <Image class="airasia" src="https://gos3.ibcdn.com/thumb200X200-1684932852.jpg"></Image>
+               <VBox class="texts">
+               <Text class="flifhtdt" text="Domestic Hotels"></Text>
+               <Text class="flightfare" text="up to 25% OFF on CGH"></Text>
+                <Text class="number" text="Hotels"></Text>
+                <VBox class="calset">
+                <core:Icon src="sap-icon://calendar" class="calicon" ></core:Icon>
+                <Text class="may31" text="Till 31 May"></Text>
+                </VBox>
+                <Button text="BOOK NOW" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </VBox>
+               </HBox>
+                <HBox class="f">
+               <Image class="airasia" src="https://gos3.ibcdn.com/leisure200-1684915183.jpg"></Image>
+               <VBox class="texts">
+               <Text class="flifhtdt" text="Domestic Hotels"></Text>
+               <Text class="flightfare" text=" get up to 40% OFF on LEISURE"></Text>
+                <Text class="number" text="Hotels"></Text>
+                <VBox class="calset">
+                <core:Icon src="sap-icon://calendar" class="calicon" ></core:Icon>
+                <Text class="may31" text="Till 31 May"></Text>
+                </VBox>
+                <Button text="View More Details" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </VBox>
+               </HBox>
+              <HBox class="f">
+               <Image class="airasia" src="https://gos3.ibcdn.com/sarovar-hotels-200X200-1684934405.jpg"></Image>
+               <VBox class="texts">
+               <Text class="flifhtdt" text="Domestic Hotels"></Text>
+               <Text class="flightfare" text="get up to 40% OFF on SAROVOR"></Text>
+                <Text class="number" text="Hotels"></Text>
+                <VBox class="calset">
+                <core:Icon src="sap-icon://calendar" class="calicon" ></core:Icon>
+                <Text class="may31" text="Ends Today"></Text>
+                </VBox>
+                <Button text="View More Details" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </VBox>
+               </HBox>
+                <HBox class="f">
+               <Image class="airasia" src="https://gos3.ibcdn.com/concept-hotels-200X200-1684934355.jpg"></Image>
+               <VBox class="texts">
+               <Text class="flifhtdt" text="Domestic Hotels"></Text>
+               <Text class="flightfare" text=" get up to 35% OFF at CONCEPT"></Text>
+                <Text class="number" text="Hotels"></Text>
+                <VBox class="calset">
+                <core:Icon src="sap-icon://calendar" class="calicon" ></core:Icon>
+                <Text class="may31" text="valid Till 30 May"></Text>
+                </VBox>
+                <Button text="View More Details" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </VBox>
+               </HBox>
+               <HBox class="f">
+               <Image class="airasia" src="https://gos3.ibcdn.com/concept-hotels-200X200-1684934355.jpg"></Image>
+               <Text text="Exolore Offers" />
+                <Button text="View All" type="Transparent" icon="sap-icon://navigation-right-arrow" class="btna" iconFirst="false"></Button>
+               </HBox>
+               </Carousel>
+               </HBox>
+               </VBox>
+        </f:content>
+	</f:Card>
+    <HBox id="arrow">
+    <core:Icon src="sap-icon://arrow-right" id="r"></core:Icon>
+    <core:Icon src="sap-icon://arrow-left" id="l"></core:Icon>
+    </HBox>
+    <HBox id="sidearrow" >
+    <core:Icon src="sap-icon://arrow-right" id="r1" press="next"></core:Icon>
+    </HBox>
+    <HBox id="sidearrowl">
+     <core:Icon src="sap-icon://arrow-left" id="l2" press="pre"></core:Icon>
+    </HBox>
+     <Text id="to" text="To" />
+     <Text id="from" text="From" />
+     <Text id="dep" text="Departure" />
+     <Text id="rn" text="Return" />
+     <Text id="trv" text="Travellers" />
+     <f:Card id="c3">
+     <f:content>
+     <VBox>
+     <HBox id="c3_1" >
+     <Image id="deals" height="87px" width="147px" src="https://gos3.ibcdn.com/dweb_dsd_high_res_bpg-1660131837.png"></Image>
+     <Image id="clock" height="97px" width="80px" src="https://gos3.ibcdn.com/Clock_image_dsd-1660109304.png"></Image>
+     <Text id="endsin" text="Ends in 07 : 45 : 10"></Text>
+     </HBox>
+     <HBox id="joinBotton">
+     <Button text="Hotels" id="h" /><Button text="Flights" id="f"/>
+     </HBox>
+     <Button text="Deals near Delhi" icon="sap-icon://map-fill" id="map"></Button>
+     <HBox id="carssol1">
+     <Carousel id="c_" loop="true" showPageIndicator="false">
+     <FlexBox class="flex1">
+     <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_mmt/t_g/htl-imgs/201411041518215446-0d962710552711ed93110a58a9feac02.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Lavanya Motel"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$4500"></Text>
+     <Text class="hPrice" text="$2422"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+    <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_ing/t_g/deddb06695ef11eb97480242ac110002.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Lavanya Motel"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$2899"></Text>
+     <Text class="hPrice" text="$657"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+     <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_mmt/t_g/htl-imgs/201009141443144250-630d6d982e4111ebaa610242ac110003.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Hotel Pinky Villa - New..."></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$4500"></Text>
+     <Text class="hPrice" text="$2422"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+     </FlexBox>
+     <FlexBox class="flex1">
+     <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_ing/t_g/32ef517c636211e9843f0242ac110003.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Hotel SPB 87"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$4500"></Text>
+     <Text class="hPrice" text="$1210"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+    <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_mmt/t_g/htl-imgs/201902011130039055-dd5f27ce168e11ea80a90242ac110002.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Hotel LA New Delhi"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$2899"></Text>
+     <Text class="hPrice" text="$2469"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+     <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_mmt/t_g/htl-imgs/200701241130593567-64c44f18ce7611e78a1a0a9df65c8753.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Lavanya Motel"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$4500"></Text>
+     <Text class="hPrice" text="$2422"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+     </FlexBox>
+     <FlexBox class="flex1">
+     <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_ing/t_g/afb912ac890111e788f10a4cef95d023.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Hotel APARA Delux"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$4500"></Text>
+     <Text class="hPrice" text="$2422"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+    <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_ing/t_g/158aaeb2241a11e78f3a0a209fbd0127.jfif" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Liv inn"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$3200"></Text>
+     <Text class="hPrice" text="$2412"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+     <HBox class="h">
+     <Image src="https://cdn1.goibibo.com/voy_ing/t_g/2bf39fb6d64911e6adf80a209fbd0127.jpg" class="hC"></Image>
+     <VBox class="data">
+     <Text class="hTitle" text="Lavanya Motel"></Text>
+     <Text class="hCity" text="Delhi"></Text>
+     <Text class="hcut" text="$3750"></Text>
+     <Text class="hPrice" text="$1255"></Text>
+     <Text class="hPN" text="per night"></Text>
+     </VBox>
+     </HBox>
+     </FlexBox>
+     </Carousel>
+     </HBox>
+     </VBox>
+     </f:content>
+     </f:Card>
+     <HBox id="safe">
+     <Image src="https://gos3.ibcdn.com/gosafe-1654247477.svg" height="61px" width="52px" id="safeImage"/>
+     <Text id="read" text="Read the latest domestic and international travel guidelines here before you travel. Stay safe, travel safe."></Text>
+     <Text text="Read more" id="readmore"></Text>
+     </HBox>
+    </content>
+    </Page>
+</mvc:View>

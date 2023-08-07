@@ -1,0 +1,36 @@
+<mvc:View xmlns:semantic="sap.m.semantic" controllerName="treetable.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core" 
+    xmlns="sap.m">
+    <Page showHeader="true" showNavButton="true" navButtonPress="back">
+    <VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="DETAILS"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="ID" />
+				<Text id="nameText" text="{TEMP>/ID}" />
+				<Label text="NAME." />
+				<Text text="{TEMP>/NAME}" />
+				<Label text="NUMBER" />
+				<Text id="countryText" text="{TEMP>/NUMBER}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+   </Page>
+</mvc:View>

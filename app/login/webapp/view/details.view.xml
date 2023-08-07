@@ -1,0 +1,42 @@
+<mvc:XMLView xmlns:mvc="sap.ui.core.mvc" 
+controllerName="login.controller.Details"
+xmlns:semantic="sap.m.semantic" 
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core" 
+    xmlns="sap.m">
+<Page showHeader="true" id="detailId">
+<headerContent>
+<Button  press="back" icon="sap-icon://log" />
+</headerContent>
+    <VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="DETAILS"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="ID" />
+				<Text text="{GLOBAL>/ID}" />
+				<Label text="NAME" />
+				<Text text="{GLOBAL>/NAME}" />
+				<Label text="NUMBER" />
+				<Text  text="{GLOBAL>/NUMBER}" />
+				<Label text="DEPT" />
+				<Text  text="{GLOBAL>/DEPT}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+   </Page>
+</mvc:XMLView>

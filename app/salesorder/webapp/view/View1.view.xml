@@ -1,0 +1,180 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m"
+    controllerName="salesorder.controller.View1"
+    height="100%"
+>
+    <ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        showEditHeaderButton="true"
+        upperCaseAnchorBar="false"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:Bar id="bar">
+                        <m:contentMiddle>
+                            <m:Title
+                                text="Seed Orders Creation"
+                                wrapping="true"
+                            />
+                        </m:contentMiddle>
+                    </m:Bar>
+                </expandedHeading>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <headerContent>
+            <m:FlexBox wrap="Wrap">
+                <layout:VerticalLayout class="vRow">
+                    <m:Label />
+                    <m:SearchField
+                        placeholder="UniqueID/Seed Order"
+                        liveChange="onSearch"
+                        id="search"
+                        width="320px"
+                    />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Label
+                        text="Configurable Product"
+                        required="true"
+                    />
+                    <m:Input
+                        id="input"
+                        placeholder="Configurable Product"
+                        showClearIcon="true"
+                        showSuggestion="true"
+                        width="320px"
+                        valueHelpIconSrc="sap-icon://add-product"
+                        textAlign="Center"
+                        showValueHelp="true"
+                        suggestionItems="{/PRODUCT_ID}"
+                        valueHelpRequest="onValueHelpRequest"
+                    >
+                        <m:suggestionItems>
+                            <core:Item text="{PRODUCT_ID}" />
+                        </m:suggestionItems>
+                    </m:Input>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Label
+                        text="Unique ID"
+                        required="true"
+                    />
+                    <m:Input
+                        id="uniqueIDinput"
+                        placeholder="Unique ID"
+                        showClearIcon="true"
+                        showSuggestion="true"
+                        width="320px"
+                        valueHelpIconSrc="sap-icon://add-product"
+                        textAlign="Center"
+                        showValueHelp="true"
+                        suggestionItems="{/unique_ID}"
+                        valueHelpRequest="onValueHelpRequest1"
+                    >
+                        <m:suggestionItems>
+                            <core:Item text="{unique_ID}" />
+                        </m:suggestionItems>
+                    </m:Input>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="vRow">
+                    <m:Label text="Created On" />
+                    <m:DateRangeSelection
+                        id="date"
+                        placeholder="MMM-dd-yyyy To MMM-dd-yyyy"
+                    />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="b">
+                    <m:Text />
+                    <m:Button
+                        id="go"
+                        text="Go"
+                        press="go"
+                    />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="b">
+                    <m:Text />
+                    <m:Button
+                        id="reset"
+                        type="Transparent"
+                        text="Reset"
+                        press="reset"
+                    />
+                </layout:VerticalLayout>
+            </m:FlexBox>
+        </headerContent>
+        <sections>
+            <ObjectPageSection>
+                <ObjectPageSubSection>
+                    <m:Table
+                        id="table"
+                        mode="SingleSelectMaster"
+                        items="{path:'/salesOrder',sorter:{path:'UNIQUE_ID'}}"
+                        selectionChange="onselect"
+                    >
+                        <m:headerToolbar>
+                            <m:OverflowToolbar>
+                                <m:Bar>
+                                    <m:contentRight>
+                                        <m:Button
+                                            text="Download Template"
+                                            id="downloadTemplate"
+                                            press="downloadTemplate"
+                                        />
+                                        <m:Button
+                                            text="Browse"
+                                            icon="sap-icon://upload"
+                                            class="browse"
+                                            id="browse"
+                                            press="browse"
+                                        />
+                                        <m:Button
+                                            text="Create Order"
+                                            id="createOrder"
+                                            press="pressOrderNow"
+                                        />
+                                    </m:contentRight>
+                                </m:Bar>
+                            </m:OverflowToolbar>
+                        </m:headerToolbar>
+                        <m:columns>
+                            <m:Column>
+                                <m:Text text="Seed Order" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Unique ID" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Order Quantity" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Material Avail. Date" />
+                            </m:Column>
+                        </m:columns>
+                        <m:items>
+                            <m:ColumnListItem>
+                                <m:cells>
+                                    <m:Text text="{SEEDORDER}" />
+                                </m:cells>
+                                <m:cells>
+                                    <m:Text text="{UNIQUE_ID}" />
+                                </m:cells>
+                                <m:cells>
+                                    <m:Text text="{ORDER_QUANTITY}" />
+                                </m:cells>
+                                <m:cells>
+                                    <m:Text text="{MATERIAL_AVAIL_DATE}" />
+                                </m:cells>
+                            </m:ColumnListItem>
+                        </m:items>
+                    </m:Table>
+                </ObjectPageSubSection>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

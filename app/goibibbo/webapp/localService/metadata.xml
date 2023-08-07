@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Interactions_Header" EntityType="CatalogService.Interactions_Header"/>
+                <EntitySet Name="Interactions_Items" EntityType="CatalogService.Interactions_Items"/>
+                <EntitySet Name="Employee" EntityType="CatalogService.Employee"/>
+                <EntitySet Name="PDFStore" EntityType="CatalogService.PDFStore"/>
+                <FunctionImport Name="crud" Function="CatalogService.crud"/>
+                <FunctionImport Name="savepdf" Function="CatalogService.savepdf"/>
+            </EntityContainer>
+            <EntityType Name="Interactions_Header">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ITEMS" Type="Edm.String"/>
+                <Property Name="PARTNER" Type="Edm.String"/>
+                <Property Name="LOG_DATE" Type="Edm.String"/>
+                <Property Name="BPCOUNTRY" Type="Edm.String" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="Interactions_Items">
+                <Key>
+                    <PropertyRef Name="INTHeader"/>
+                    <PropertyRef Name="TEXT_ID"/>
+                </Key>
+                <Property Name="INTHeader" Type="Edm.String" Nullable="false"/>
+                <Property Name="TEXT_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="LANGU" Type="Edm.String" MaxLength="2"/>
+                <Property Name="LOGTEXT" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Employee">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="NAME" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="NUMBER" Type="Edm.String" MaxLength="100"/>
+                <Property Name="DEPT" Type="Edm.String" MaxLength="100"/>
+                <Property Name="PASSWORD" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="PDFStore">
+                <Key>
+                    <PropertyRef Name="NAME"/>
+                </Key>
+                <Property Name="NAME" Type="Edm.String" Nullable="false"/>
+                <Property Name="URL" Type="Edm.String"/>
+            </EntityType>
+            <Function Name="crud" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="ID" Type="Edm.Int32"/>
+                <Parameter Name="NAME" Type="Edm.String"/>
+                <Parameter Name="NUMBER" Type="Edm.String"/>
+                <Parameter Name="DEPT" Type="Edm.String"/>
+                <Parameter Name="PASSWORD" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Function Name="savepdf" IsBound="false" IsComposable="false">
+                <Parameter Name="FLAG" Type="Edm.String"/>
+                <Parameter Name="NAME" Type="Edm.String"/>
+                <Parameter Name="URL" Type="Edm.String"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

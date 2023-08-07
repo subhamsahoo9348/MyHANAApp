@@ -1,0 +1,94 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    controllerName="staticicalforecast.controller.CreateProfile"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="Create Profile"
+        titleAlignment="Center"
+        showNavButton="true"
+        navButtonPress="back"
+    >
+        <content>
+            <form:SimpleForm layout="ResponsiveGridLayout">
+                <form:content>
+                    <Label text="Profile Name" />
+                    <Input id="profileName" width="30%"/>
+                    <Label text="Profile Description" />
+                    <Input id="profileDesc" width="30%"/>
+                    <Label text="Algorithm" />
+                    <HBox>
+                        <Select
+                        id="algoSelect"
+                        textAlign="Center"
+                        change="onChange"
+                        selectedKey="null"
+                        items="{/algo}"
+                    >
+                        <core:Item
+                            text="{method}"
+                            key="{method}"
+                        />
+                    </Select>
+                    </HBox>
+                </form:content>
+            </form:SimpleForm>
+            <Table
+                id="table2"
+                mode="None"
+                items="{/items}"
+            >
+                <columns>
+                    <Column>
+                        <Text text="Prameter" />
+                    </Column>
+                    <Column>
+                        <Text text="Description" />
+                    </Column>
+                    <Column>
+                        <Text text="Type" />
+                    </Column>
+                    <Column>
+                        <Text text="DefaultValue" />
+                    </Column>
+                    <Column>
+                        <Text text="User Defined Value" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{PARAM}" />
+                        </cells>
+                        <cells>
+                            <Text text="{PARAM_DESC}" />
+                        </cells>
+                        <cells>
+                            <Text text="{DATA_TYPE}"/>
+                        </cells>
+                        <cells>
+                            <Text text="{DEFAULT_VALUE}" />
+                        </cells>
+                        <cells>
+                            <Input value="{PARAM_VALUE}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+        <OverflowToolbar >
+        <Bar >
+        <contentRight>
+        <Button text="SAVE" id="saveButton" visible="true" press="onSave"></Button>
+        <Button text="UPDATE" id="updateButton" visible="false" press="onUpdate"></Button>
+        </contentRight>
+        </Bar>
+        </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

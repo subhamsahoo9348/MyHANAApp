@@ -1,0 +1,11 @@
+<mvc:View xmlns:unified="sap.ui.unified" controllerName="fileuploader.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <unified:FileUploader id="fileUpload" fileType="XLSX,xlsx" icon="sap-icon://attachment" iconOnly="true"></unified:FileUploader>
+        <Button text="UPLOAD" press="upload" icon="sap-icon://upload"></Button>
+        <Button text="DOWNLOAD" press="onExport" ></Button>
+        <Table id="table" growing="true" growingScrollToLoad="true" alternateRowColors="true" >
+        </Table>
+    </Page>
+</mvc:View>
